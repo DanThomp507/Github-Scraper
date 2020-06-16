@@ -10,3 +10,12 @@ repo = soup_object.find(class_='explore-pjax-container container-lg p-responsive
 repo_list = repo.find_all(class_='Box-row')
 
 print(len(repo_list))
+
+for repo in repo_list:
+    full_repo_name = repo.find(class_='h3 lh-condensed').text.split()
+
+    developer = full_repo_name[0]
+
+    repo_name = full_repo_name[2]
+
+    stars = repo.find(class_='octicon octicon-star').parent.text.strip()
